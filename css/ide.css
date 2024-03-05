@@ -1,19 +1,19 @@
 :root {
-  --judge0-black: #333;
-  --judge0-gray: #ced4da;
-  --judge0-red: #ff8787;
-  --judge0-pink: #f783ac;
-  --judge0-grape: #da77f2;
-  --judge0-violet: #9775fa;
-  --judge0-indigo: #748ffc;
-  --judge0-blue: #4dabf7;
-  --judge0-cyan: #3bc9db;
-  --judge0-teal: #38d9a9;
-  --judge0-green: #69db7c;
-  --judge0-lime: #a9e34b;
-  --judge0-yellow: #ffd43b;
-  --judge0-orange: #ffa94d;
-  --judge0-theme: var(--judge0-blue);
+  --lq-black: #333;
+  --lq-gray: #ced4da;
+  --lq-red: #ff8787;
+  --lq-pink: #f783ac;
+  --lq-grape: #da77f2;
+  --lq-violet: #9775fa;
+  --lq-indigo: #748ffc;
+  --lq-blue: #4dabf7;
+  --lq-cyan: #3bc9db;
+  --lq-teal: #38d9a9;
+  --lq-green: #69db7c;
+  --lq-lime: #a9e34b;
+  --lq-yellow: #ffd43b;
+  --lq-orange: #ffa94d;
+  --lq-theme: var(--lq-blue);
 }
 
 html,
@@ -25,7 +25,6 @@ body {
 }
 
 body {
-  background: url(../images/judge0_background.png) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -97,7 +96,7 @@ body {
 }
 
 #navigation-message a {
-  color: var(--judge0-theme);
+  color: var(--lq-theme);
   font-weight: bold;
 }
 
@@ -129,12 +128,12 @@ body {
 }
 
 #run-btn {
-  background-color: var(--judge0-theme);
+  background-color: var(--lq-theme);
 }
 
 #site-footer,
 #status-line {
-  background-color: var(--judge0-theme);
+  background-color: var(--lq-theme);
   bottom: 0;
   font-family: "Droid Sans Mono", monospace, monospace, "Droid Sans Fallback";
   font-size: 13px;
