@@ -214,6 +214,10 @@ function run() {
 
   var sendRequest = function (data) {
     timeStart = performance.now();
+    const userTeam = localStorageGetItem("TeamName");
+    if(userTeam){
+      data.teamName = userTeam
+    }
     $.ajax({
       url: apiUrl + `/submissions`,
       type: "POST",

@@ -42,6 +42,7 @@
     <script type="text/javascript" src="third_party/download.js"></script>
 
     <script type="text/javascript" src="js/ide.js"></script>
+    <script type="text/javascript" src="js/TeamHandler.js"></script>
 
     <link type="text/css" rel="stylesheet" href="css/ide.css">
 
@@ -55,7 +56,7 @@
         <div id="site-header" class="header item">
             <a href="/">
                 <img id="site-icon" src="./images/judge0_icon.png">
-                <h2>Judge0 IDE</h2>
+                <h2>Google Developer Student Clubs</h2>
             </a>
         </div>
         <div class="left menu">
@@ -65,11 +66,19 @@
                 </select>
             </div>
         
-            <div class="item borderless wide screen only " style="width:0">
-                <div class="ui input">
-                    <input id="command-line-arguments" type="text" placeholder="Command line arguments" disabled style="opacity:0">
+            <div class="item borderless wide screen only">
+                <div class="ui input"  style="display: none;">
+                    <input id="command-line-arguments" type="text" placeholder="Command line arguments" disabled >
+                </div>
+                <div id="teamNameWrapper">
+                    <input id="teamNameInput" type="text" placeholder="Team Name">
                 </div>
             </div>
+
+            <div class="item no-left-padding borderless">
+                <button id="btnSubmitTeam" onclick="handleTeamName()">Submit</button>
+            </div>
+
             <div class="item no-left-padding borderless">
                 <button id="run-btn" class="ui primary labeled icon button"><i class="play icon"></i><span id="run-btn-label">Run (⌘ + ↵)</span></button>
             </div>
