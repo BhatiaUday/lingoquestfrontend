@@ -6,8 +6,8 @@ const AUTH_HEADERS = API_KEY
     }
   : {};
 
-var defaultUrl = localStorageGetItem("api-url") || "http://98.70.8.213:5000";
-var extraApiUrl = "http://98.70.8.213:5000";
+var defaultUrl = localStorageGetItem("api-url") || "http://98.70.8.213:8000";
+var extraApiUrl = "http://98.70.8.213:8000";
 
 if (location.hostname == "ide.judge0.com") {
   defaultUrl = "https://ce.judge0.com";
@@ -215,8 +215,8 @@ function run() {
   var sendRequest = function (data) {
     timeStart = performance.now();
     const userTeam = localStorageGetItem("TeamName");
-    if(userTeam){
-      data.teamName = userTeam
+    if (userTeam) {
+      data.teamName = userTeam;
     }
     $.ajax({
       url: apiUrl + `/submissions`,
@@ -824,7 +824,7 @@ main :- write('hello, world\\n').\n\
 ";
 
 var pythonSource =
-  "!! Take a look at the Documentation first \n !! link: https://lq.gdscnsut.com/ ";
+  "!! Take a look at the Documentation first \n!! link: https://lq.gdscnsut.com/";
 
 var rSource = 'cat("hello, world\\n")';
 
