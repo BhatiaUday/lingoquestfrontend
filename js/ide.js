@@ -213,31 +213,31 @@ function run() {
   };
 
   var sendRequest = function (data) {
-    timeStart = performance.now();
     const userTeam = localStorageGetItem("TeamName");
     if (userTeam) {
       data.teamName = userTeam;
+      timeStart = performance.now();
+      $.ajax({
+        url: apiUrl + `/submissions`,
+        type: "POST",
+        async: true,
+        contentType: "application/json",
+        data: JSON.stringify(data),
+        headers: AUTH_HEADERS,
+        success: function (data, textStatus, jqXHR) {
+          console.log(`Your submission token is: ${data.token}`);
+          if (wait) {
+            handleResult(data);
+          } else {
+            setTimeout(
+              fetchSubmission.bind(null, data.token, 1),
+              INITIAL_WAIT_TIME_MS
+            );
+          }
+        },
+        error: handleRunError,
+      });
     }
-    $.ajax({
-      url: apiUrl + `/submissions`,
-      type: "POST",
-      async: true,
-      contentType: "application/json",
-      data: JSON.stringify(data),
-      headers: AUTH_HEADERS,
-      success: function (data, textStatus, jqXHR) {
-        console.log(`Your submission token is: ${data.token}`);
-        if (wait) {
-          handleResult(data);
-        } else {
-          setTimeout(
-            fetchSubmission.bind(null, data.token, 1),
-            INITIAL_WAIT_TIME_MS
-          );
-        }
-      },
-      error: handleRunError,
-    });
   };
 
   var fetchAdditionalFiles = false;
@@ -397,7 +397,14 @@ $(document).ready(function () {
 
   $runBtn = $("#run-btn");
   $runBtn.click(function (e) {
-    run();
+    const userTeam = localStorageGetItem("TeamName");
+    if (userTeam) {
+      run();
+    }else{
+      alert("Please Enter TeamName, Error Invalid TeamName")
+      location.reload()
+    }
+    
   });
 
   $navigationMessage = $("#navigation-message span");
