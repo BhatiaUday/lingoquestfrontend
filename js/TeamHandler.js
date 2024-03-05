@@ -11,24 +11,32 @@ document.addEventListener("DOMContentLoaded", function () {
       inputElement.value = storedItem;
       inputElement.disabled = true;
       buttonElement.disabled = true;
+    } else {
+      const btnRun = document.getElementById("run-btn");
+      btnRun.disabled = true;
     }
   } catch (error) {
     console.error(error);
   }
 });
 
+function isFolderNameSafe(folderName) {
+  const folderNameRegex = /^[a-zA-Z0-9]{4,}$/;
+  return folderNameRegex.test(folderName);
+}
+
 function handleTeamName() {
   try {
     const userInput = document.getElementById("teamNameInput").value;
 
     //Validation To Check Team Name Greater Than 4
-    if (userInput.length > 4) {
+    if (isFolderNameSafe(userInput)) {
       localStorage.setItem("TeamName", userInput);
-      location.reload()
+      location.reload();
     } else {
-      alert("Please Enter Valid Team Name! ");
+      alert("Please Enter Valid Team Name!, A Team Name Can Only Contain Upper And Lower Case Alphabets, Numbers And No Special Characters. A Team Name Should Be Atleast 4 Characters Long.");
     }
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
