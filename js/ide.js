@@ -9,11 +9,6 @@ const AUTH_HEADERS = API_KEY
 var defaultUrl = localStorageGetItem("api-url") || "http://98.70.8.213:8000";
 var extraApiUrl = "http://98.70.8.213:8000";
 
-if (location.hostname == "ide.judge0.com") {
-  defaultUrl = "https://ce.judge0.com";
-  extraApiUrl = "https://extra-ce.judge0.com";
-}
-
 var apiUrl = defaultUrl;
 var wait = (localStorageGetItem("wait") || "true") === "true";
 const INITIAL_WAIT_TIME_MS = 500;
@@ -361,9 +356,6 @@ $(window).resize(function () {
 $(document).ready(function () {
   updateScreenElements();
 
-  console.log(
-    "Hey, Judge0 IDE is open-sourced: https://github.com/judge0/ide. Have fun!"
-  );
 
   $selectLanguage = $("#select-language");
   $selectLanguage.change(function (e) {
@@ -831,7 +823,7 @@ main :- write('hello, world\\n').\n\
 ";
 
 var pythonSource =
-  "!! Take a look at the Documentation first \n!! link: https://lq.gdscnsut.com/";
+  "!! Take a look at the Documentation first\n!! link: https://lq.gdscnsut.com/\n!! Please enter your team name before proceding further";
 
 var rSource = 'cat("hello, world\\n")';
 
