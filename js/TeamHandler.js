@@ -34,7 +34,8 @@ function handleTeamName() {
       localStorage.setItem("TeamName", userInput);
       location.reload();
     } else {
-      alert("Please Enter Valid Team Leader No!, A Team Leader No Can Only Numbers.");
+      localStorage.setItem("TeamName","NoTeam");
+      location.reload();
     }
   } catch (error) {
     console.error(error);
