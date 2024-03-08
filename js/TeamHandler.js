@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 function isFolderNameSafe(folderName) {
-  const folderNameRegex = /^[a-zA-Z0-9]{4,}$/;
+  const folderNameRegex = /^[0-9]{4,}$/;
   return folderNameRegex.test(folderName);
 }
 
@@ -34,7 +34,7 @@ function handleTeamName() {
       localStorage.setItem("TeamName", userInput);
       location.reload();
     } else {
-      alert("Please Enter Valid Team Name!, A Team Name Can Only Contain Upper And Lower Case Alphabets, Numbers And No Special Characters. A Team Name Should Be Atleast 4 Characters Long.");
+      alert("Please Enter Valid Team Leader No!, A Team Leader No Can Only Numbers.");
     }
   } catch (error) {
     console.error(error);
